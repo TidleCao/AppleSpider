@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ResourceSeaching" customModule="Spider" customModuleProvider="target">
+            <connections>
+                <outlet property="resourceTypeSelectionMatrix" destination="uXJ-j8-o8a" id="0lu-ek-SVV"/>
+                <outlet property="searchingBtn" destination="jWY-2A-rBr" id="tpy-Gk-DDu"/>
+                <outlet property="searchingEnginePopupBtn" destination="v3Q-kp-ILA" id="2Bp-UX-soj"/>
+                <outlet property="searchingTextField" destination="PkT-ap-tr4" id="w3d-Sn-YUO"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="417" height="155"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydt-9C-9ol">
+                    <rect key="frame" x="0.0" y="24" width="417" height="107"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="bottom" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCF-UA-Udp">
+                            <rect key="frame" x="31" y="79" width="355" height="28"/>
+                            <subviews>
+                                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PkT-ap-tr4">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="28"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="280" id="HkY-cP-gPZ"/>
+                                        <constraint firstAttribute="height" constant="28" id="IZa-Ro-YqI"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="center" placeholderString="输入电影名称，比如：终结者" drawsBackground="YES" usesSingleLineMode="YES" id="u5B-sg-aaR">
+                                        <font key="font" metaFont="system" size="17"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <action selector="searchWithKeywords:" target="-2" id="c2o-Po-ZMh"/>
+                                    </connections>
+                                </textField>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v3Q-kp-ILA">
+                                    <rect key="frame" x="290" y="-1" width="65" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="uTS-EW-5Nq"/>
+                                    </constraints>
+                                    <popUpButtonCell key="cell" type="roundTextured" title="Item 1" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="DJw-NB-bGg" id="2sL-HB-Tqs">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <menu key="menu" id="ZJA-00-ggs">
+                                            <items>
+                                                <menuItem title="Item 1" state="on" id="DJw-NB-bGg" userLabel="百度"/>
+                                                <menuItem title="Item 2" id="9RT-1I-ufv" userLabel="Bing"/>
+                                                <menuItem title="Item 3" id="bUc-Jt-9lS" userLabel="Google"/>
+                                                <menuItem title="Item 3" id="sJE-tE-nIp" userLabel="TorrentKitty"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                    <connections>
+                                        <action selector="onSearchingEngineChanged:" target="-2" id="E9R-Fu-Ga9"/>
+                                    </connections>
+                                </popUpButton>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <matrix verticalHuggingPriority="750" mode="highlight" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXJ-j8-o8a">
+                            <rect key="frame" x="59" y="41" width="300" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="CzB-Rx-1dQ"/>
+                            </constraints>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            <size key="cellSize" width="75" height="18"/>
+                            <buttonCell key="prototype" type="check" title="Radio" bezelStyle="regularSquare" imagePosition="left" allowsMixedState="YES" inset="2" id="K05-Zw-FgN">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <cells>
+                                <column>
+                                    <buttonCell type="check" title="视频" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" allowsMixedState="YES" inset="2" id="3qY-xS-4Ex">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </column>
+                                <column>
+                                    <buttonCell type="check" title="音频" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" tag="1" allowsMixedState="YES" inset="2" id="WqL-kL-Vqe">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </column>
+                                <column>
+                                    <buttonCell type="check" title="软件" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" tag="2" allowsMixedState="YES" inset="2" id="Aa0-co-BB3">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </column>
+                                <column>
+                                    <buttonCell type="check" title="压缩包" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" tag="3" allowsMixedState="YES" inset="2" id="HNO-fi-C5e">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </column>
+                            </cells>
+                            <connections>
+                                <action selector="onSourceTypeSelectionChanged:" target="-2" id="5nf-DX-HVG"/>
+                            </connections>
+                        </matrix>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="30" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D30-1L-AqZ">
+                            <rect key="frame" x="125" y="0.0" width="167" height="21"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qwA-Zk-442">
+                                    <rect key="frame" x="-6" y="-7" width="67" height="32"/>
+                                    <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hXo-GA-iA3">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="cancel:" target="-2" id="cmU-Wb-SpY"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jWY-2A-rBr">
+                                    <rect key="frame" x="79" y="-7" width="94" height="32"/>
+                                    <buttonCell key="cell" type="push" title="开始搜索" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dhy-kd-QeI">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="searchWithKeywords:" target="-2" id="R5G-pP-wsz"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ydt-9C-9ol" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="NH9-Ka-qUU"/>
+                <constraint firstAttribute="trailing" secondItem="ydt-9C-9ol" secondAttribute="trailing" id="Qsq-Ra-ViV"/>
+                <constraint firstItem="ydt-9C-9ol" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="ddx-fG-crv"/>
+                <constraint firstItem="ydt-9C-9ol" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="jc3-jI-blg"/>
+            </constraints>
+            <point key="canvasLocation" x="125.5" y="95.5"/>
+        </customView>
+    </objects>
+</document>

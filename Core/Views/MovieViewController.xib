@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MovieViewController" customModule="Spider" customModuleProvider="target">
+            <connections>
+                <outlet property="countLabel" destination="8Qe-3i-ZcP" id="Qoy-kB-Edb"/>
+                <outlet property="downloadSelectedResourcesBtn" destination="XRK-sP-aGr" id="Kqi-4t-4fR"/>
+                <outlet property="indicator" destination="SOE-JV-Tv3" id="rcX-Ly-zUj"/>
+                <outlet property="popupBtn" destination="acx-k9-WJX" id="9aa-S0-z59"/>
+                <outlet property="promptLabel" destination="0p4-aK-eDL" id="Wme-N2-CII"/>
+                <outlet property="searchBtn" destination="hWm-gy-RES" id="JB1-Bc-p2D"/>
+                <outlet property="sortPopupButton" destination="IvF-us-pSF" id="fUb-HJ-GKk"/>
+                <outlet property="tableView" destination="1r0-uF-BlK" id="Qy4-Cv-lES"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="980" height="272"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q30-dw-Cb8" customClass="RefreshableScrollView" customModule="Spider" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="980" height="222"/>
+                    <clipView key="contentView" id="dmW-9D-Njo">
+                        <rect key="frame" x="0.0" y="0.0" width="980" height="222"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" viewBased="YES" id="1r0-uF-BlK">
+                                <rect key="frame" x="0.0" y="0.0" width="980" height="222"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <size key="intercellSpacing" width="0.0" height="2"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn width="980" minWidth="40" maxWidth="1000" id="v76-uW-zfD">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                            <font key="font" metaFont="menu" size="11"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="3ma-gh-ugz">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <tableCellView identifier="movieTableCellView" id="Xcz-Gg-QAp" customClass="MovieTableCellView" customModule="Spider" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="1" width="980" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fi7-GE-C23">
+                                                        <rect key="frame" x="18" y="16" width="22" height="18"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fGg-NC-nds">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                    </button>
+                                                    <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bmj-Vb-Q5U">
+                                                        <rect key="frame" x="48" y="17" width="646" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="left" title="name" usesSingleLineMode="YES" id="Rz3-f0-4EO">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lyg-PW-XYI" userLabel="FileSize">
+                                                        <rect key="frame" x="790" y="17" width="80" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="size" id="emQ-IR-wi0">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HyU-P2-Ude" userLabel="Download">
+                                                        <rect key="frame" x="872" y="8" width="94" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="push" title="立即下载" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ESC-15-cHz">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                    </button>
+                                                </subviews>
+                                                <connections>
+                                                    <outlet property="checkbox" destination="Fi7-GE-C23" id="KQP-n3-zLR"/>
+                                                    <outlet property="downloadBtn" destination="HyU-P2-Ude" id="xOe-pm-ptk"/>
+                                                    <outlet property="nameTextField" destination="bmj-Vb-Q5U" id="tiz-gK-1qT"/>
+                                                    <outlet property="sizeTextField" destination="Lyg-PW-XYI" id="pND-95-UmW"/>
+                                                    <outlet property="textField" destination="bmj-Vb-Q5U" id="Pgb-uS-gnI"/>
+                                                </connections>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8bn-7S-xP2">
+                        <rect key="frame" x="1" y="119" width="223" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="X1k-Ju-v2h">
+                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0p4-aK-eDL">
+                    <rect key="frame" x="308" y="117" width="364" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="没有发现资源，请重试！" id="oGM-m9-7ib">
+                        <font key="font" metaFont="system" size="32"/>
+                        <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Snc-bh-vPm">
+                    <rect key="frame" x="0.0" y="222" width="980" height="50"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="30" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OqG-G1-xR2">
+                            <rect key="frame" x="20" y="15" width="157" height="21"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zla-4B-91G">
+                                    <rect key="frame" x="-2" y="1" width="49" height="18"/>
+                                    <buttonCell key="cell" type="check" title="全选" bezelStyle="regularSquare" imagePosition="left" inset="2" id="GtK-uR-UIv">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="toggleAllSelection:" target="-2" id="kN6-bm-oxm"/>
+                                        <binding destination="-2" name="enabled" keyPath="self.isSniffing" id="gw4-5c-Eys">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
+                                        <binding destination="-2" name="enabled2" keyPath="self.resourcesAvailable" previousBinding="gw4-5c-Eys" id="Sys-Ja-gAC">
+                                            <dictionary key="options">
+                                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                <integer key="NSNullPlaceholder" value="-1"/>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XRK-sP-aGr">
+                                    <rect key="frame" x="69" y="-7" width="94" height="32"/>
+                                    <buttonCell key="cell" type="push" title="下载资源" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yUn-EX-azc">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="downloadForSelectedResources:" target="-2" id="aba-vQ-3wa"/>
+                                        <binding destination="-2" name="enabled" keyPath="self.isSniffing" id="1JX-L8-Fz0">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
+                                        <binding destination="-2" name="enabled2" keyPath="self.resourcesAvailable" previousBinding="1JX-L8-Fz0" id="Fby-ps-xmw">
+                                            <dictionary key="options">
+                                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                <integer key="NSNullPlaceholder" value="-1"/>
+                                            </dictionary>
+                                        </binding>
+                                        <binding destination="-2" name="enabled3" keyPath="self.resourcesDownloadable" previousBinding="Fby-ps-xmw" id="hLf-xC-CNe">
+                                            <dictionary key="options">
+                                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                <integer key="NSNullPlaceholder" value="-1"/>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4j8-9W-RSc">
+                            <rect key="frame" x="811" y="15" width="141" height="21"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hWm-gy-RES">
+                                    <rect key="frame" x="0.0" y="3" width="14" height="14"/>
+                                    <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NSRefreshFreestandingTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="v5K-HI-93u">
+                                        <behavior key="behavior" lightByContents="YES"/>
+                                        <font key="font" metaFont="systemBold" size="12"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="research:" target="-2" id="bAR-cc-L69"/>
+                                    </connections>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Qe-3i-ZcP">
+                                    <rect key="frame" x="22" y="2" width="13" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="0" id="ClP-77-tsP">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="-2" name="hidden" keyPath="self.isSniffing" id="CTV-AK-jXY"/>
+                                    </connections>
+                                </textField>
+                                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="SOE-JV-Tv3">
+                                    <rect key="frame" x="43" y="2" width="16" height="16"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="16" id="JdP-Ld-rFg"/>
+                                    </constraints>
+                                    <connections>
+                                        <binding destination="-2" name="hidden" keyPath="self.isSniffing" id="2oc-Uu-FLj">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </progressIndicator>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="acx-k9-WJX">
+                                    <rect key="frame" x="67" y="-3" width="77" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="R92-vn-eMx" id="Ue5-s7-rB6">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <menu key="menu" id="Gnz-sm-LxG">
+                                            <items>
+                                                <menuItem title="Item 1" state="on" id="R92-vn-eMx"/>
+                                                <menuItem title="Item 2" id="FhY-7g-dfB"/>
+                                                <menuItem title="Item 3" id="bD7-qh-V2O"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                    <connections>
+                                        <action selector="handleSwitchSpiderAction:" target="-2" id="WtY-7w-sqY"/>
+                                        <binding destination="-2" name="enabled" keyPath="self.isSniffing" id="Xqg-vf-UI0">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </popUpButton>
+                                <popUpButton hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IvF-us-pSF">
+                                    <rect key="frame" x="-2" y="-3" width="77" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="TSi-hV-LUa" id="OTH-lJ-tlr">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <menu key="menu" id="oqw-o1-xdC">
+                                            <items>
+                                                <menuItem title="Item 1" state="on" id="TSi-hV-LUa"/>
+                                                <menuItem title="Item 2" id="viq-0G-7dY"/>
+                                                <menuItem title="Item 3" id="gAH-m6-Llm"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                    <connections>
+                                        <binding destination="-2" name="selectedIndex" keyPath="self.sortSelectedIndex" id="EFR-ci-WGz"/>
+                                    </connections>
+                                </popUpButton>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="OqG-G1-xR2" firstAttribute="centerY" secondItem="Snc-bh-vPm" secondAttribute="centerY" id="1oj-3c-bS7"/>
+                        <constraint firstItem="4j8-9W-RSc" firstAttribute="centerY" secondItem="Snc-bh-vPm" secondAttribute="centerY" id="5uS-ty-nLP"/>
+                        <constraint firstAttribute="width" constant="980" id="FSP-Ol-dQ8"/>
+                        <constraint firstItem="OqG-G1-xR2" firstAttribute="leading" secondItem="Snc-bh-vPm" secondAttribute="leading" constant="20" id="R6u-Ky-5Xh"/>
+                        <constraint firstAttribute="height" constant="50" id="XNO-Si-OsJ"/>
+                        <constraint firstAttribute="trailing" secondItem="4j8-9W-RSc" secondAttribute="trailing" constant="28" id="wKC-jl-BOZ"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="q30-dw-Cb8" secondAttribute="bottom" id="3s4-yk-WjE"/>
+                <constraint firstItem="Snc-bh-vPm" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="5ko-bR-9ky"/>
+                <constraint firstItem="q30-dw-Cb8" firstAttribute="trailing" secondItem="Snc-bh-vPm" secondAttribute="trailing" id="8HW-1d-11V"/>
+                <constraint firstItem="q30-dw-Cb8" firstAttribute="top" secondItem="Snc-bh-vPm" secondAttribute="bottom" id="NCn-t3-3Fy"/>
+                <constraint firstItem="Snc-bh-vPm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="jki-Xp-rfv"/>
+                <constraint firstItem="q30-dw-Cb8" firstAttribute="leading" secondItem="Snc-bh-vPm" secondAttribute="leading" id="ymM-8O-sQ3"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="154"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
+    </resources>
+</document>
